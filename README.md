@@ -1,50 +1,36 @@
-# Welcome to your Expo app 👋
+# X-clone
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**X-clone** — це клон-додаток соціальної мережі X (колись Twitter). Проект створено для практики розробки мобільного додатку на базі **Expo**, з реалізацією інтерфейсу, навігації та бекенду через **Convex**.
 
-## Get started
+## Команда та внесок
 
-1. Install dependencies
+* **Дьомін Семен (Team Leader)** – створив проект, зробив merge всіх гілок, додав redirect на індекс, контролював процес розробки.
+* **Васильківський Артур (Auth & UI Developer)** – працював над користувацьким інтерфейсом: додав ілюстрацію, функціонал виходу (Sign Out), трохи попрацював зі стилями, покращив UI.
+* **Білоцерковський Дмитро (UI Developer)** – розпочав роботу над інтерфейсом, створював основу, але через від’їзд брав участь частково.
+* **Волянський Нікіта (Backend Developer)** – займався бекендом: додав **Convex**, налаштовував логіку роботи з даними.
 
-   ```bash
-   npm install
-   ```
+## Технології
 
-2. Start the app
+* **Expo** та **React Native** – для мобільного додатку.
+* **TypeScript** – мова проєкту.
+* **Convex** – бекенд та база даних у реальному часі.
+* **Clerk** – аутентифікація користувачів.
 
-   ```bash
-   npx expo start
-   ```
+## Структура проєкту
 
-In the output, you'll find options to open the app in a
+* `app/` – основний код додатку та екрани.
+* `components/` – UI-компоненти.
+* `assets/images/` – зображення та ілюстрації.
+* `styles/` – стилі додатку.
+* `constants/` – константи проєкту.
+* `convex/` – бекенд та функції Convex.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Встановлення та запуск
 
 ```bash
-npm run reset-project
+# Встановити залежності
+npm install
+
+# Запустити проєкт
+npx expo start
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
