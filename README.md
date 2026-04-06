@@ -12,7 +12,7 @@
 ### 06.04.2026
 * **Дьомін Семен (Team Leader)** – створив `providers/ClerkAndConvexProvider.tsx` та зробив рефактеринг `app/_layout.tsx`.
 * **Васильківський Артур (UI Developer)** – оновив трохи `app/(tabs)/index.tsx` 
-* **Білоцерковський Дмитро (Schema Developer)** – створюв `convex/schema.ts` зі всіма таблицями, визначає поля та типи та додав індекси для пошуку
+* **Білоцерковський Дмитро (Schema Developer)** – створив `convex/schema.ts` зі всіма таблицями, визначив поля та типи та додав індекси для пошуку
 * **Волянський Нікіта (Backend Developer)** – створив `convex/users.ts` з mutation `createUser`, `convex/http.ts` для обробки Clerk Webhooks. Також налаштовує Webhook в Clerk Dashboard та додав `CLERK_WEBHOOK_SECRET` в Convex
 
 ## Технології
