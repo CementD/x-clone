@@ -46,7 +46,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#ffffff",
     paddingHorizontal: 20,
     paddingTop: 20,
   },
@@ -55,10 +55,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
     marginBottom: 20,
+    color: "#fff",
   },
   title: {
     fontSize: 28,
-    color: "#fff",
+    color: "#000",
     fontFamily: "JetBrainsMono-Medium",
     marginBottom: 4,
   },
@@ -86,5 +87,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     marginTop: 40,
+  },
+  item: {
+    backgroundColor: "#111827",
+    borderRadius: 16,
+    padding: 18,
+  },
+  itemTitle: {
+    fontSize: 18,
+    color: "#fff",
+    fontFamily: "JetBrainsMono-Medium",
+    marginBottom: 6,
+  },
+  itemSubtitle: {
+    color: "#9ca3af",
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: "SpaceMono-Regular",
+  },
+  separator: {
+    height: 12,
   },
 });
