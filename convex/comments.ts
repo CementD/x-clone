@@ -1,46 +1,57 @@
+import { ConvexError, v } from "convex/values";
 import { mutation, query } from "./_generated/server";
-import { v } from "convex/values";
+import { getAuthenticatedUser } from "./users";
 
 export const addComment = mutation({
-  args: {
-    userId: v.id("users"),
-    postId: v.id("posts"),
-    content: v.string(),
+  args: { 
+    content: v.string(), 
+    postId: v.id("posts") 
   },
   handler: async (ctx, args) => {
-    const { userId, postId, content } = args;
+    const currentUser = await getAuthenticatedUser(ctx);
+    const post = await ctx.db.get(args.postId);
+    if (!post) throw new ConvexError("Post not found");
 
     const commentId = await ctx.db.insert("comments", {
-      userId,
-      postId,
-      content,
-      createdAt: Date.now(),
+      userId: currentUser._id,
+      postId: args.postId,
+      content: args.content,
+      createdAt: Date.now()
     });
 
-    const post = await ctx.db.get(postId);
-    if (post) {
-      await ctx.db.patch(postId, {
-        comments: post.comments + 1,
+    await ctx.db.patch(args.postId, { comments: post.comments + 1 });
+
+    if (post.userId !== currentUser._id) {
+      await ctx.db.insert("notifications", {
+        receiverId: post.userId,
+        senderId: currentUser._id,
+        type: "comment",
+        postId: args.postId,
+        commentId,
+        isRead: false,
+        createdAt: Date.now()
       });
     }
-
     return commentId;
   },
 });
 
 export const getComments = query({
-  args: {
-    postId: v.id("posts"),
-  },
+  args: { postId: v.id("posts") },
   handler: async (ctx, args) => {
     const comments = await ctx.db
       .query("comments")
-      .withIndex("by_post_created", (q) =>
-        q.eq("postId", args.postId)
-      )
-      .order("asc")
+      .withIndex("by_post", (q) => q.eq("postId", args.postId))
       .collect();
 
-    return comments;
+    return await Promise.all(
+      comments.map(async (comment) => {
+        const user = await ctx.db.get(comment.userId);
+        return {
+          ...comment,
+          user: { fullname: user!.fullname, image: user!.image },
+        };
+      }),
+    );
   },
 });
