@@ -19,7 +19,7 @@ export default function HomeScreen() {
   
 
   if (!isAuthenticated) {
-    return <Redirect href={"/(auth)/login"} />;
+    return <Text style={styles.message}>Please login in...</Text>;
   }
 
 
