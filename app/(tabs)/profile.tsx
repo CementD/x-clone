@@ -47,12 +47,10 @@ export default function ProfileScreen() {
     userId ? { clerkId: userId } : "skip"
   );
 
-  /* TO DO, REPLACE getPosts to getPostsByUser */
-  const posts = useQuery(api.posts.getPosts, {});
+  const posts = useQuery(api.posts.getPostsByUser, {});
 
-  /*
   const updateProfile = useMutation(api.users.updateProfile);
-  */
+  
 
   const [editedProfile, setEditedProfile] = useState({
     fullname: currentUser?.fullname || "",
@@ -60,7 +58,7 @@ export default function ProfileScreen() {
   });
 
   const handleSaveProfile = async () => {
-    /* await updateProfile(editedProfile); */
+    await updateProfile(editedProfile);
     setIsEditModalVisible(false);
   };
 
