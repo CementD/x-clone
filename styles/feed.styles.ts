@@ -51,6 +51,8 @@ export const styles = StyleSheet.create({
   },
   storyRingActive: {
     borderColor: COLORS.primary,
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
   },
   storyRingInactive: {
     borderColor: COLORS.grey,
@@ -204,17 +206,19 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginRight: 18,
-    width: 70,
+    width: 60,
+
   },
 
   addRing: {
-    width: 64,
-    height: 64,
+    width: 60,
+    height: 60,
+    marginTop: -20,
+    paddingTop: 8,
     borderRadius: 32,
     borderWidth: 2,
     borderColor: COLORS.primary,
     borderStyle: "dashed",
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: COLORS.surfaceLight,
   },
