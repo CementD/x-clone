@@ -205,11 +205,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginRight: 18,
     width: 70,
+    marginTop: -15,
+    marginLeft: 0
   },
 
   addRing: {
-    width: 64,
-    height: 64,
+    width: 60,
+    height: 60,
     borderRadius: 32,
     borderWidth: 2,
     borderColor: COLORS.primary,
